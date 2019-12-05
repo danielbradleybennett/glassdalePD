@@ -1,6 +1,6 @@
 const CriminalComponent = (criminal) => {
   return ` 
-    
+     
   <div class ="criminal__card">
   
     <div>Name: ${criminal.name}</div>
@@ -15,6 +15,7 @@ const CriminalComponent = (criminal) => {
   <br>
 
 `
-}
 
+}
+console.log("Criminal Components")
 export default CriminalComponent

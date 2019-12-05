@@ -20,3 +20,4 @@ contentElement.innerHTML += `
 `
 }
 export default CriminalListComponent
+console.log("criminal list")
