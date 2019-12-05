@@ -15,4 +15,5 @@ export const getCriminals = () => {
         )
 }
 
+console.log("criminal data")
 
