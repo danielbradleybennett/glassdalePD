@@ -1,0 +1,20 @@
+const CriminalComponent = (criminal) => {
+  return ` 
+    
+  <div class ="criminal__card">
+  
+    <div>Name: ${criminal.name}</div>
+    <div>Age: ${criminal.age}</div>
+    <div>Conviction: ${criminal.conviction}</div>
+    <div>Incarceration Start: ${new Date(criminal.incarceration.start).toLocaleDateString('en-US')}</div>
+    <div>Incarceration End: ${new Date(criminal.incarceration.end).toLocaleDateString('en-US')}</div>
+
+    
+
+  </div>
+  <br>
+
+`
+}
+
+export default CriminalComponent
