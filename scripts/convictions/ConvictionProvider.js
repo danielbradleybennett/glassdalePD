@@ -12,10 +12,9 @@ export const getConvictions = () => {
         .then(response => response.json())
         .then(
             parsedConvictions => {
-                console.table(parsedConvictions)
+                console.log(parsedConvictions)
                 convictions = parsedConvictions.slice()
             }
         )
 }
 
-console.log("conviction data")
