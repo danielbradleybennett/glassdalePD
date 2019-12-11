@@ -16,7 +16,7 @@ const CriminalListComponent = () => {
     console.log(crime)
 
   const matchingCriminals = criminalCollection.filter((currentCriminal) => {
-  
+
     if (currentCriminal.conviction === crime){
     return currentCriminal}
   

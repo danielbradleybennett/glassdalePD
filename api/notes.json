@@ -1,0 +1,16 @@
+{
+  "notes": [
+    {
+      "criminalName": "",
+      "crimeNotes": "",
+      "dateLogged": 1576099400319,
+      "id": 1
+    },
+    {
+      "criminalName": "something",
+      "crimeNotes": "something",
+      "dateLogged": 1576099408484,
+      "id": 2
+    }
+  ]
+}

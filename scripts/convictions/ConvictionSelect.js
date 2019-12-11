@@ -10,9 +10,9 @@ const ConvictionSelect = () => {
 
     eventHub.addEventListener("change", changeEvent => {
         if (changeEvent.target.classList.contains("dropdown")) {
-        const selectedCrime = changeEvent.target.value
-        console.log(selectedCrime)
-        
+            const selectedCrime = changeEvent.target.value
+            console.log(selectedCrime)
+
 
             const message = new CustomEvent("crimeSelected", {
 
@@ -22,11 +22,12 @@ const ConvictionSelect = () => {
             })
 
 
-        
 
-eventHub.dispatchEvent(message)
 
-     } })
+            eventHub.dispatchEvent(message)
+
+        }
+    })
 
     const render = convictionsCollection => {
 
@@ -36,14 +37,14 @@ eventHub.dispatchEvent(message)
             Look back at the example provided above.
         */
 
-        
+
         contentTarget.innerHTML += `
             <select class="dropdown" id="crimeSelect">
                 <option value="0">Please select a crime...</option>
             ${convictionsCollection.sort().map(
-                conviction => `<option id="crimeSelect">${conviction}</option>`
-            )
-        }
+            conviction => `<option id="crimeSelect">${conviction}</option>`
+        )
+            }
 
             </select>
         `
