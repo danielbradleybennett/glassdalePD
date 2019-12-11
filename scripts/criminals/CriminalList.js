@@ -1,23 +1,45 @@
-import {useCriminals} from "./CriminalDataProvider.js"
+import { useCriminals } from "./CriminalDataProvider.js"
 
 import CriminalComponent from "./Criminal.js"
+const eventHub = document.querySelector(".container")
+const contentElement = document.querySelector(".criminalsContainer")
+
+
+
 
 const CriminalListComponent = () => {
-  const contentElement = document.querySelector(".criminalsContainer")
-  const criminals = useCriminals()
+  const criminalCollection = useCriminals();
+  
 
-  let allCriminalHTML = " "
-  for (const criminal of criminals ) {
-  const criminalHTML = CriminalComponent(criminal)
-  allCriminalHTML += criminalHTML
+  eventHub.addEventListener("crimeSelected", event => {
+    const crime = event.detail.crime
+    console.log(crime)
+
+  const matchingCriminals = criminalCollection.filter((currentCriminal) => {
+
+    if (currentCriminal.conviction === crime){
+    return currentCriminal}
+  
+  
+})
+  
+if (matchingCriminals.length >0) {render(matchingCriminals)}
+else {render(criminalCollection)}
 
 
-}
+  })
 
-contentElement.innerHTML += `
-  ${allCriminalHTML}
 
-`
-}
+  
+  
+let render = criminalCollection => {
+  contentElement.innerHTML = `
+      ${criminalCollection.map(currentCriminal => {
+    return CriminalComponent(currentCriminal)}).join(" ")}`
+
+      }
+    render(criminalCollection)
+    }
+
+  
 export default CriminalListComponent
-console.log("criminal list")
