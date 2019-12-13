@@ -5,6 +5,7 @@ const eventHub = document.querySelector(".container")
 const contentTarget = document.querySelector(".filters__crime")
 
 const ConvictionSelect = () => {
+    
     // Get all convictions from application state
     const convictions = useConvictions()
 
