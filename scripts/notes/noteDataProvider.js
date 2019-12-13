@@ -7,7 +7,6 @@ export const useNotes = () => {
 
 }
 
-
 export const saveNote = note => {
   fetch('http://localhost:8080/notes', {
       method: "POST",
@@ -24,8 +23,15 @@ export const getNotes = () => {
       .then(response => response.json())
       .then(
           parsedNotes => {
-              console.log(parsedNotes)
+              
               notes = parsedNotes.slice()
           }
       )
+}
+
+export const deleteNote = noteId => {
+  return fetch(`http://localhost:8080/notes/${noteId}`, {
+      method: "DELETE"
+  })
+      .then(getNotes)
 }

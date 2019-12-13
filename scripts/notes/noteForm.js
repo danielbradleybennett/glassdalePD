@@ -16,6 +16,10 @@ const NoteFormComponent = () => {
             
             <button id="saveNote">Save Note</button>
             <button id="showNotes">Show Notes</button>
+            <button id="showWitness">Witnesses</button>
+            
+
+
         `
     }
 

@@ -1,11 +1,15 @@
-const NoteComponent = (note) => {
+const NoteComponent = (noteObject) => {
+  
+  // Note components that are to be rendered to HTML.
+  
   return ` 
      
   <div class ="note__card">
   
-    <div>Name: ${note.criminalName}</div>
-    <div>Notes: ${note.crimeNotes}</div>
-    <div>Date: ${note.dateLogged}</div>
+    <div>Name: ${noteObject.criminalName}</div>
+    <div>Notes: ${noteObject.crimeNotes}</div>
+    <div>Date: ${noteObject.dateLogged}</div>
+    <button id="deleteNote--${noteObject.id}">Delete</button>
     
 
     
