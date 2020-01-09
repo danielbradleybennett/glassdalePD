@@ -53,6 +53,20 @@ eventHub.addEventListener("witnessButtonClicked", (evt) => {
   
 })
 
+eventHub.addEventListener("emptyCriminalContainer", clickEvent => {
+  if(clickEvent.detail.isTheNoteListThere === true) {
+    document.querySelector(".criminalsContainer").innerHTML = ""
+  } 
+  else {render(criminalCollection)}console.log("hi")
+
+
+  }
+
+
+
+
+)
+
   // Listens for button to be clicked. 
 
 
