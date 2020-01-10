@@ -9,15 +9,22 @@ import { getNotes } from "./notes/noteDataProvider.js"
 import { DialogComponent } from "./criminals/alibiDialog.js"
 import { WitnessListComponent} from "./witness/witnessList.js"
 import { getWitness } from "./witness/witnessDataProvider.js"
+import { getOfficers } from "./officers/officerDataProvider.js"
+import OfficerSelect from "./officers/officersList.js"
+import FilterButton from "./filter/filter.js"
 
 
 
 
 
-
-getWitness()
-getConvictions().then(ConvictionsSelect)
-getCriminals().then(CriminalListComponent)
+getConvictions()
+  .then(ConvictionsSelect)
+getOfficers()
+  .then(OfficerSelect)
+  getWitness()
+getCriminals()
+  .then(CriminalListComponent)
+  .then(FilterButton)
 getNotes()
 .then(NoteFormComponent)
 .then(NoteListComponent)

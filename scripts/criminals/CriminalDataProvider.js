@@ -1,19 +1,52 @@
+// let criminals = []
+
+// export const useCriminals = () => {
+//     return criminals
+// }
+
+// export const getCriminals = () => {
+//     return fetch("http://criminals.glassdale.us/criminals")
+//         .then(response => response.json())
+//         .then(
+//             parsedCriminals => {
+//                 console.log(parsedCriminals)
+//                 criminals = parsedCriminals.slice()
+//             }
+//         )
+// }
+
+// console.log("criminal data")
+
+
+
 let criminals = []
 
-export const useCriminals = () => {
-    return criminals
+const setCriminals = criminalArray => criminals = criminalArray.splice(0)
+
+export const getCriminalsByCrime = crime => {
+    return criminals.filter(currentCriminal => {
+        if (currentCriminal.conviction.toLowerCase() === crime.toLowerCase()) {
+            return true
+        }
+        return false
+    })
 }
 
+export const getCriminalsByOfficer = officerName => {
+    return criminals.filter(currentCriminal => {
+        if (currentCriminal.arrestingOfficer.toLowerCase() === officerName.toLowerCase()) {
+            return true
+        }
+        return false
+    })
+}
+
+export const useCriminals = () => criminals.slice()
 export const getCriminals = () => {
-    return fetch("http://criminals.glassdale.us/criminals")
+    // Load database state into application state
+    return fetch("http://criminals.glassdale.us/criminals", {
+        method: "GET"
+    })
         .then(response => response.json())
-        .then(
-            parsedCriminals => {
-                console.log(parsedCriminals)
-                criminals = parsedCriminals.slice()
-            }
-        )
+        .then(setCriminals)
 }
-
-console.log("criminal data")
-

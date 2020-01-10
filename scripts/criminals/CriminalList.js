@@ -10,26 +10,60 @@ const contentElement = document.querySelector(".criminalsContainer")
 const CriminalListComponent = () => {
    const criminalCollection = useCriminals();
   
+// Now Being Listened For in Filter
+//   eventHub.addEventListener("crimeSelected", event => {
+//     const crime = event.detail.crime
+//     console.log(crime)
 
-  eventHub.addEventListener("crimeSelected", event => {
-    const crime = event.detail.crime
-    console.log(crime)
+//   const matchingCriminals = criminalCollection.filter((currentCriminal) => {
 
-  const matchingCriminals = criminalCollection.filter((currentCriminal) => {
-
-    if (currentCriminal.conviction === crime){
-    return currentCriminal}
+//     if (currentCriminal.conviction === crime){
+//     return currentCriminal}
   
   
-})
+// })
   
-// Show Selected Crimes back to Show all Criminals
+// // Show Selected Crimes back to Show all Criminals
 
-if (matchingCriminals.length >0) {render(matchingCriminals)}
-else {render(criminalCollection)}
+// if (matchingCriminals.length >0) {render(matchingCriminals)}
+// else {render(criminalCollection)}
+
+// })
 
 
+eventHub.addEventListener("filterClicked", event => {
+  const crimeName = event.detail.crime
+  const officerName = event.detail.officer
+
+  const filteredCriminals = criminalCollection.filter(
+      (individualCriminal) => {
+          if (individualCriminal.conviction === crimeName) {
+              return individualCriminal
+          }
+      }
+  )
+  .filter(criminal => {
+      if (criminal.arrestingOfficer === officerName) {
+          return criminal
+      }
   })
+
+  render(filteredCriminals)
+})
+
+    // eventHub.addEventListener('officerSelected', event => {
+    //     if ("officerName" in event.detail) {
+    //         if (event.detail.officerName === "0") {
+    //             render(criminalCollection)
+           
+    //             } else {
+    //             const filteredCriminals = getCriminalsByOfficer(event.detail.officerName)
+    //             render(filteredCriminals)
+    //          }
+    //     }
+    // })
+
+
 
 eventHub.addEventListener("witnessButtonClicked", (evt) => {
   //if the container that holds the witnesses is empty
@@ -45,11 +79,6 @@ eventHub.addEventListener("witnessButtonClicked", (evt) => {
     document.querySelector(".criminalsContainer").innerHTML = ""
   } 
   else { render(criminalCollection)}
-
-
-  //document.queryselector(".WhateverMyCriminalListIs").innerhtml = ""
-  
-  //otherwise render the criminal list 
   
 })
 
@@ -57,15 +86,8 @@ eventHub.addEventListener("emptyCriminalContainer", clickEvent => {
   if(clickEvent.detail.isTheNoteListThere === true) {
     document.querySelector(".criminalsContainer").innerHTML = ""
   } 
-  else {render(criminalCollection)}console.log("hi")
-
-
-  }
-
-
-
-
-)
+  else {render(criminalCollection)}
+ })
 
   // Listens for button to be clicked. 
 

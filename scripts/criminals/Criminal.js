@@ -8,6 +8,7 @@ const CriminalComponent = (criminal) => {
     <div>Conviction: ${criminal.conviction}</div>
     <div>Incarceration Start: ${new Date(criminal.incarceration.start).toLocaleDateString('en-US')}</div>
     <div>Incarceration End: ${new Date(criminal.incarceration.end).toLocaleDateString('en-US')}</div>
+    <div>Arresting Officer: ${criminal.arrestingOfficer}</div>
     
     
     <button class="button--close" id="associates--${criminal.id}">Associate Alibis</button>

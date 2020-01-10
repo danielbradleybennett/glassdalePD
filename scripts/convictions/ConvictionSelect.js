@@ -10,7 +10,7 @@ const ConvictionSelect = () => {
     const convictions = useConvictions()
 
     eventHub.addEventListener("change", changeEvent => {
-        if (changeEvent.target.classList.contains("dropdown")) {
+        if (changeEvent.target.id === "crimeSelect") {
             const selectedCrime = changeEvent.target.value
             
         
@@ -45,7 +45,7 @@ const ConvictionSelect = () => {
             <select class="dropdown" id="crimeSelect">
                 <option value="0">Please select a crime...</option>
             ${convictionsCollection.sort().map(
-            conviction => `<option id="crimeSelect">${conviction}</option>`
+            conviction => `<option>${conviction}</option>`
         )
             }
 
