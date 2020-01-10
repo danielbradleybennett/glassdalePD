@@ -9,6 +9,38 @@
   flex-basis: 30%;
   border: 2px solid black;
   margin: 15px;
+  padding: 10px;
   
+
+}
+
+
+.witnessListContainer {
+  display: flex;
+  flex-wrap: wrap;
+  
+}
+
+.witness__card {
+  flex-basis: 30%;
+  border: 2px solid black;
+  margin: 15px; 
+  padding: 10px;
+
+
+}
+
+.note__card {
+  flex-basis: 30%;
+  border: 2px dotted black;
+  margin 15px;
+  padding: 10px;
+
+}
+
+.noteListContainer {
+  display: flex;
+  flex-wrap: wrap;
+
 
 }

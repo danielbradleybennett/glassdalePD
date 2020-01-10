@@ -14,25 +14,23 @@ export const WitnessListComponent = () => {
   eventHub.addEventListener("click", clickEvent => {
     if (clickEvent.target.id === "showWitness") {
       
-      let witnessListCheck = false 
+      let isWitnessListOnTheScreen = false 
       
       if (document.querySelector(".witnessListContainer").innerHTML === "") {
         
         const witnessArray = useWitness()
         console.log(witnessArray)
         render(witnessArray)
-        witnessListCheck = true 
+        isWitnessListOnTheScreen = true 
       }
       else {
-        if (document.querySelector(".witnessListContainer").innerHTML = "") {
-          
-          
-        }
+        
+        document.querySelector(".witnessListContainer").innerHTML = ""
         
       }
       const message = new CustomEvent("witnessButtonClicked", {
         detail:{
-          isTheWitnessListThere: witnessListCheck
+          isTheWitnessListThere: isWitnessListOnTheScreen
         }
       })
       eventHub.dispatchEvent(message)
